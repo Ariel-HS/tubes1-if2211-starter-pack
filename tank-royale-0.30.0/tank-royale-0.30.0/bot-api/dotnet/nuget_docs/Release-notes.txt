@@ -1,0 +1,3 @@
+Version @VERSION@
+-----------------
+This is a beta version (0.xx). Expect some changes to the API before version 1.0

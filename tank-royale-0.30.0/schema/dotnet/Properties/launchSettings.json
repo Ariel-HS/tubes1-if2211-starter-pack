@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CodeGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Code\\tank-royale\\schema\\schemas C:\\Code\\tank-royale\\bot-api\\dotnet\\Robocode.TankRoyale.BotApi\\src\\generated"
+    }
+  }
+}

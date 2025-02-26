@@ -1,0 +1,9 @@
+{
+  "name": "TestBot",
+  "version": "1.0",
+  "authors": [
+    "Test Master"
+  ],
+  "platform": "JVM",
+  "programmingLang": "Java 11"
+}
