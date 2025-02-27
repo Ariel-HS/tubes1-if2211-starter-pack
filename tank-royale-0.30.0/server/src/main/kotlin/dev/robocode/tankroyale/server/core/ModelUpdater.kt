@@ -26,6 +26,8 @@ private val bulletMaxBoundingCircleDiameterSquared: Double =
 private const val BOT_BOUNDING_CIRCLE_DIAMETER_SQUARED: Double =
     BOT_BOUNDING_CIRCLE_DIAMETER.toDouble() * BOT_BOUNDING_CIRCLE_DIAMETER
 
+// private const val MAX_GAME_TURN = 500
+private const val MAX_GAME_TURN = 10000
 
 /** Model updater, which is used for keeping track of the model state for each turn and round of a game. */
 class ModelUpdater(
@@ -63,6 +65,9 @@ class ModelUpdater(
 
     /** Turn record */
     internal val turn = MutableTurn(0)
+
+    /** Turn record for whole game */
+    internal val gameTurn = MutableTurn(0)
 
     /** The id for the next bullet that comes into existence */
     private var nextBulletId = 0
@@ -146,6 +151,8 @@ class ModelUpdater(
         // Reset events
         turn.turnNumber++
         turn.resetEvents()
+
+        gameTurn.turnNumber++
 
         deepCopyBots()
 
@@ -877,10 +884,10 @@ class ModelUpdater(
 
     /** Checks and handles if the round is ended or game is over. */
     private fun checkAndHandleRoundOrGameOver() {
-        if (isRoundOver()) {
+        if (isRoundOver() || gameTurn.turnNumber >= MAX_GAME_TURN) {
             round.apply {
                 roundEnded = true
-                if (roundNumber >= setup.numberOfRounds) {
+                if (roundNumber >= setup.numberOfRounds || gameTurn.turnNumber >= MAX_GAME_TURN) {
                     gameState.isGameEnded = true // Game over
                 }
 
