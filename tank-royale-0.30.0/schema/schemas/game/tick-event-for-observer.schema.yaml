@@ -4,6 +4,9 @@ description: Event occurring for before each new turn in the battle. Gives detai
 extends:
   $ref: event.schema.yaml
 properties:
+  gameTurn:
+    description: The current turn number in the game when event occurred
+    type: integer
   roundNumber:
     description: The current round number in the battle when event occurred
     type: integer

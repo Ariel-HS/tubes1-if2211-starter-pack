@@ -39,6 +39,7 @@ object ArenaPanel : JPanel() {
 
     private var round: Int = 0
     private var time: Int = 0
+    private var gameTime: Int = 0
     private var bots: Set<BotState> = HashSet()
     private var bullets: Set<BulletState> = HashSet()
 
@@ -85,6 +86,7 @@ object ArenaPanel : JPanel() {
 
         round = tickEvent.roundNumber
         time = tickEvent.turnNumber
+        gameTime = tickEvent.gameTurn
         bots = tickEvent.botStates
         bullets = tickEvent.bulletStates
 
@@ -316,7 +318,7 @@ object ArenaPanel : JPanel() {
 
         g.scale(1.0, -1.0)
         g.color = Color.BLACK
-        g.drawString("Round $round, Turn: $time", 10, 20 - arenaHeight)
+        g.drawString("Round $round, Turn: $time, GameTurn: $gameTime", 10, 20 - arenaHeight)
 
         oldState.restore(g)
     }

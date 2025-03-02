@@ -580,6 +580,7 @@ class GameServer(
         broadcastToObserverAndControllers(TurnToTickEventForObserverMapper
             .map(roundNumber, turn, participantMap, enemyCountMap, debugGraphicsEnableMap)
             .apply {
+                gameTurn = modelUpdater!!.getGameTurn()
                 results = getResultsForObserversOnTick()
             })
     }

@@ -82,6 +82,10 @@ class ModelUpdater(
     fun getScoresOnTick(): List<Score> {
         val scores = scoreCalculator.getScoresOnTick()
         val accumulatedScores: MutableList<Score> = getResults().map{ it.copy() }.toMutableList()
+
+        if (gameState.isGameEnded || round.roundEnded) {
+            return accumulatedScores
+        }
         
         if (accumulatedScores.isEmpty()) {
             accumulatedScores.addAll(scores)
@@ -94,6 +98,11 @@ class ModelUpdater(
         }
 
         return accumulatedScores
+    }
+
+    /** Get number of turn passed in the game. */
+    fun getGameTurn(): Int {
+        return gameTurn.turnNumber
     }
 
     /** The number of rounds played so far */

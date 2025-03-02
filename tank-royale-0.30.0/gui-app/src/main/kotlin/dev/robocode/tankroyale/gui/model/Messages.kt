@@ -102,6 +102,7 @@ data class ScannedBotEvent(
 @SerialName("TickEventForObserver")
 open class TickEvent(
     override val turnNumber: Int,
+    val gameTurn: Int,
     val roundNumber: Int,
     val botStates: Set<BotState>,
     val bulletStates: Set<BulletState>,
