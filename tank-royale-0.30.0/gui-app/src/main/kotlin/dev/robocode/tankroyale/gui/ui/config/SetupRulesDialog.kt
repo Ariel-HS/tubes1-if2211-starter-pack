@@ -49,6 +49,7 @@ class SetupRulesPanel : JPanel(MigLayout("fill")) {
     private val inactivityTurnsTextField = JTextField(6)
     private val readyTimeoutTextField = JTextField(6)
     private val turnTimeoutTextField = JTextField(6)
+    private val maxTurnCountTextField = JTextField(6)
 
     private var changed = false
 
@@ -88,6 +89,9 @@ class SetupRulesPanel : JPanel(MigLayout("fill")) {
 
             addLabel("turn_timeout")
             add(turnTimeoutTextField, "wrap")
+
+            addLabel("max_turn")
+            add(maxTurnCountTextField, "wrap")
         }
         val arenaPanel = JPanel(MigLayout()).apply {
             border = BorderFactory.createTitledBorder(Strings.get("arena_size"))
@@ -135,6 +139,7 @@ class SetupRulesPanel : JPanel(MigLayout("fill")) {
         inactivityTurnsTextField.setInputVerifier { inactivityTurnsVerifier() }
         readyTimeoutTextField.setInputVerifier { readyTimeoutVerifier() }
         turnTimeoutTextField.setInputVerifier { turnTimeoutVerifier() }
+        maxTurnCountTextField.setInputVerifier { maxTurnCountVerifier() }
 
         onOk.subscribe(this) {
             apply()
@@ -166,7 +171,8 @@ class SetupRulesPanel : JPanel(MigLayout("fill")) {
             gunCoolingRateTextField,
             inactivityTurnsTextField,
             readyTimeoutTextField,
-            turnTimeoutTextField
+            turnTimeoutTextField,
+            maxTurnCountTextField
         ).forEach { it.onChange { handleChange() } }
     }
 
@@ -192,7 +198,8 @@ class SetupRulesPanel : JPanel(MigLayout("fill")) {
                 inactivityTurnsTextField.text != gameSetup.maxInactivityTurns.toString() ||
                 gunCoolingRateTextField.text != gameSetup.gunCoolingRate.toString() ||
                 readyTimeoutTextField.text != gameSetup.readyTimeout.toString() ||
-                turnTimeoutTextField.text != gameSetup.turnTimeout.toString()
+                turnTimeoutTextField.text != gameSetup.turnTimeout.toString() ||
+                maxTurnCountTextField.text != gameSetup.maxTurnCount.toString()
 
     private fun updateFieldsForGameType() {
         widthTextField.text = gameSetup.arenaWidth.toString()
@@ -204,6 +211,7 @@ class SetupRulesPanel : JPanel(MigLayout("fill")) {
         gunCoolingRateTextField.text = gameSetup.gunCoolingRate.toString()
         readyTimeoutTextField.text = gameSetup.readyTimeout.toString()
         turnTimeoutTextField.text = gameSetup.turnTimeout.toString()
+        maxTurnCountTextField.text = gameSetup.maxTurnCount.toString()
     }
 
     private fun widthVerifier(): Boolean {
@@ -402,6 +410,28 @@ class SetupRulesPanel : JPanel(MigLayout("fill")) {
         val valid = timeout != null && timeout >= 0
         if (valid) {
             gameSetup.turnTimeout = timeout!!
+        } else {
+            showMessage(
+                String.format(
+                    Messages.get("turn_timeout_range"),
+                    GameConstants.MAX_TURN_TIMEOUT
+                )
+            )
+
+            turnTimeoutTextField.text = "" + gameSetup.turnTimeout
+        }
+        return valid
+    }
+
+    private fun maxTurnCountVerifier(): Boolean {
+        val turnCount: Int? = try {
+            maxTurnCountTextField.text.trim().toInt()
+        } catch (e: NumberFormatException) {
+            null
+        }
+        val valid = turnCount != null && turnCount >= 0
+        if (valid) {
+            gameSetup.maxTurnCount = turnCount!!
         } else {
             showMessage(
                 String.format(

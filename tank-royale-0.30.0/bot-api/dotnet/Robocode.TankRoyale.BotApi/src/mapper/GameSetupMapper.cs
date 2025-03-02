@@ -12,6 +12,7 @@ public static class GameSetupMapper
             source.GunCoolingRate,
             source.MaxInactivityTurns,
             source.TurnTimeout,
+            source.MaxTurnCount,
             source.ReadyTimeout
         );
     }

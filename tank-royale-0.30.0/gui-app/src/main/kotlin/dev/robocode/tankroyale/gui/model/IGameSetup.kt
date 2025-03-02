@@ -20,6 +20,7 @@ interface IGameSetup {
     val maxInactivityTurns: Int
     val isMaxInactivityTurnsLocked: Boolean
     val turnTimeout: Int
+    val maxTurnCount: Int
     val isTurnTimeoutLocked: Boolean
     val readyTimeout: Int
     val isReadyTimeoutLocked: Boolean
@@ -43,6 +44,7 @@ interface IGameSetup {
             maxInactivityTurns,
             isMaxInactivityTurnsLocked,
             turnTimeout,
+            maxTurnCount,
             isTurnTimeoutLocked,
             readyTimeout,
             isReadyTimeoutLocked,

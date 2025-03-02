@@ -21,10 +21,11 @@ data class GameSetup(
     override val maxInactivityTurns: Int,
     override val isMaxInactivityTurnsLocked: Boolean,
     override val turnTimeout: Int,
+    override val maxTurnCount: Int,
     override val isTurnTimeoutLocked: Boolean,
     override val readyTimeout: Int,
     override val isReadyTimeoutLocked: Boolean,
-    override val defaultTurnsPerSecond: Int
+    override val defaultTurnsPerSecond: Int,
 ) : IGameSetup {
 
     fun toMutableGameSetup(): MutableGameSetup {
@@ -45,6 +46,7 @@ data class GameSetup(
             maxInactivityTurns,
             isMaxInactivityTurnsLocked,
             turnTimeout,
+            maxTurnCount,
             isTurnTimeoutLocked,
             readyTimeout,
             isReadyTimeoutLocked,

@@ -55,6 +55,9 @@ properties:
     description: Turn timeout in microseconds (1 / 1,000,000 second) for sending intent
       after having received 'tick' message
     type: integer
+  maxTurnCount:
+    description: Number of turns before game ends
+    type: integer
   isTurnTimeoutLocked:
     description: Flag specifying if the turn timeout is fixed for this game type
     type: boolean

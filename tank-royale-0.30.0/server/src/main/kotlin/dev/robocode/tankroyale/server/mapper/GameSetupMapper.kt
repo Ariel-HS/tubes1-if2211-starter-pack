@@ -15,6 +15,7 @@ object GameSetupMapper {
             setup.gunCoolingRate = gunCoolingRate
             setup.maxInactivityTurns = maxInactivityTurns
             setup.turnTimeout = turnTimeout
+            setup.maxTurnCount = maxTurnCount
             setup.readyTimeout = readyTimeout
             setup.defaultTurnsPerSecond = defaultTurnsPerSecond
             setup.isArenaWidthLocked = isArenaWidthLocked
@@ -42,6 +43,7 @@ object GameSetupMapper {
                 gunCoolingRate = gunCoolingRate,
                 maxInactivityTurns = maxInactivityTurns,
                 turnTimeout = turnTimeout,
+                maxTurnCount = maxTurnCount,
                 readyTimeout = readyTimeout,
                 defaultTurnsPerSecond = defaultTurnsPerSecond,
                 isArenaWidthLocked = isArenaWidthLocked,

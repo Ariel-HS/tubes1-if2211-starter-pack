@@ -19,6 +19,7 @@ data class MutableGameSetup(
     override var maxInactivityTurns: Int,
     override var isMaxInactivityTurnsLocked: Boolean,
     override var turnTimeout: Int,
+    override var maxTurnCount: Int,
     override var isTurnTimeoutLocked: Boolean,
     override var readyTimeout: Int,
     override var isReadyTimeoutLocked: Boolean,
@@ -42,6 +43,7 @@ data class MutableGameSetup(
         maxInactivityTurns = other.maxInactivityTurns
         isMaxInactivityTurnsLocked = other.isMaxInactivityTurnsLocked
         turnTimeout = other.turnTimeout
+        maxTurnCount = other.maxTurnCount
         isTurnTimeoutLocked = other.isTurnTimeoutLocked
         readyTimeout = other.readyTimeout
         isReadyTimeoutLocked = other.isReadyTimeoutLocked

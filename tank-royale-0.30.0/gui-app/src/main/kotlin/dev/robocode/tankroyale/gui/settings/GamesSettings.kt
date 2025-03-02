@@ -25,6 +25,7 @@ object GamesSettings : PropertiesStore("Robocode Games Settings", "games.propert
                 maxInactivityTurns = 450,
                 isMaxInactivityTurnsLocked = false,
                 turnTimeout = 30_000, // 30 milliseconds
+                maxTurnCount = 5000,
                 isTurnTimeoutLocked = false,
                 readyTimeout = 1_000_000, // 1 second
                 isReadyTimeoutLocked = false,
@@ -47,6 +48,7 @@ object GamesSettings : PropertiesStore("Robocode Games Settings", "games.propert
                 maxInactivityTurns = 450,
                 isMaxInactivityTurnsLocked = true,
                 turnTimeout = 30_000, // 30 milliseconds
+                maxTurnCount = 5000,
                 isTurnTimeoutLocked = false,
                 readyTimeout = 1_000_000, // 1 second
                 isReadyTimeoutLocked = false,
@@ -69,6 +71,7 @@ object GamesSettings : PropertiesStore("Robocode Games Settings", "games.propert
                 maxInactivityTurns = 450,
                 isMaxInactivityTurnsLocked = false,
                 turnTimeout = 30_000, // 30 milliseconds
+                maxTurnCount = 5000,
                 isTurnTimeoutLocked = false,
                 readyTimeout = 1_000_000, // 1 second
                 isReadyTimeoutLocked = false,
@@ -91,6 +94,7 @@ object GamesSettings : PropertiesStore("Robocode Games Settings", "games.propert
                 maxInactivityTurns = 450,
                 isMaxInactivityTurnsLocked = false,
                 turnTimeout = 30_000, // 30 milliseconds
+                maxTurnCount = 5000,
                 isTurnTimeoutLocked = false,
                 readyTimeout = 1_000_000, // 1 second
                 isReadyTimeoutLocked = false,

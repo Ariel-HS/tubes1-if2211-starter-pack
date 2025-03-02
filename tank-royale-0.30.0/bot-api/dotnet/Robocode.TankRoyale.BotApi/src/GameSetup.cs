@@ -42,11 +42,16 @@ public sealed class GameSetup
     public int TurnTimeout { get; }
 
     /// <summary>
+    /// Max turn in one game
+    /// </summary>
+    public int MaxTurnCount { get; }
+
+    /// <summary>
     /// Time limit in milliseconds for sending ready message after having received 'new battle' message.
     /// </summary>
     public int ReadyTimeout { get; }
 
-    public GameSetup(string gameType, int arenaWidth, int arenaHeight, int numberOfRounds,
+    public GameSetup(string gameType, int arenaWidth, int arenaHeight, int numberOfRounds, int maxTurnCount,
         double gunCoolingRate, int? maxInactivityTurns, int turnTimeout, int readyTimeout)
     {
         GameType = gameType;
@@ -57,5 +62,6 @@ public sealed class GameSetup
         MaxInactivityTurns = maxInactivityTurns;
         TurnTimeout = turnTimeout;
         ReadyTimeout = readyTimeout;
+        MaxTurnCount = maxTurnCount;
     }
 }

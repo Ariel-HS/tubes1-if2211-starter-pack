@@ -24,6 +24,9 @@ const val DEFAULT_INACTIVITY_TURNS = 450
 /** Default turn timeout in microseconds (1 / 1,000,000 seconds) */
 const val DEFAULT_TURN_TIMEOUT = 5000 // 5 milliseconds
 
+/** Default maximum turns */
+const val DEFAULT_MAX_TURN_COUNT = 5000 // 5 milliseconds
+
 /** Default ready timeout in microseconds (1 / 1,000,000 seconds) */
 const val DEFAULT_READY_TIMEOUT = 1_000_000 // 1 second
 

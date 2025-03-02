@@ -31,6 +31,9 @@ data class GameSetup(
     /** Turn timeout in milliseconds */
     val turnTimeout: Int = DEFAULT_TURN_TIMEOUT,
 
+    /** Maximum turns until game ends */
+    val maxTurnCount: Int = DEFAULT_MAX_TURN_COUNT,
+
     /** Ready timeout in milliseconds */
     val readyTimeout: Int = DEFAULT_READY_TIMEOUT,
 
