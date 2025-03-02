@@ -81,8 +81,8 @@ class ModelUpdater(
     /** Get Scores for the current turn. */
     fun getScoresOnTick(): List<Score> {
         val scores = scoreCalculator.getScoresOnTick()
-        val accumulatedScores: MutableList<Score> = getResults().toMutableList()
-
+        val accumulatedScores: MutableList<Score> = getResults().map{ it.copy() }.toMutableList()
+        
         if (accumulatedScores.isEmpty()) {
             accumulatedScores.addAll(scores)
         } else {
